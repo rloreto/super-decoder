@@ -85,12 +85,8 @@ void main(void) {
           unsigned char py = 47 + y * 40;
           unsigned char color_pal = grid[x][y];
 
-          // Llenar la celda con sprites (4x4 = 16 sprites)
-          for (i = 0; i < 4; i++) {
-            for (j = 0; j < 4; j++) {
-              oam_off = oam_spr(px + j * 8, py + i * 8, 1, color_pal, oam_off);
-            }
-          }
+          // Un sprite por celda
+          oam_off = oam_spr(px, py, 1, color_pal, oam_off);
         }
       }
     }
@@ -120,22 +116,24 @@ void main(void) {
     // Movimiento del cursor
     if ((ctrl & PAD_UP) && !(prev_ctrl & PAD_UP) && cursor_y > 0)
       cursor_y--;
-    if ((ctrl & PAD_DOWN) && !(prev_ctrl & PAD_DOWN) && cursor_y < 3)
+    if ((ctrl & PAD_DOWN) && !(prev_ctrl & PAD_DOWN) && cursor_y < 4)
       cursor_y++;
     if ((ctrl & PAD_LEFT) && !(prev_ctrl & PAD_LEFT) && cursor_x > 0)
       cursor_x--;
-    if ((ctrl & PAD_RIGHT) && !(prev_ctrl & PAD_RIGHT) && cursor_x < 3)
+    if ((ctrl & PAD_RIGHT) && !(prev_ctrl & PAD_RIGHT) && cursor_x < 4)
       cursor_x++;
 
     // Cambiar color seleccionado (Select = izquierda, Start = derecha)
     if ((ctrl & PAD_SELECT) && !(prev_ctrl & PAD_SELECT)) {
-      selected_color--;
-      if (selected_color == 0)
+      if (selected_color > 1)
+        selected_color--;
+      else
         selected_color = 3;
     }
     if ((ctrl & PAD_START) && !(prev_ctrl & PAD_START)) {
-      selected_color++;
-      if (selected_color > 3)
+      if (selected_color < 3)
+        selected_color++;
+      else
         selected_color = 1;
     }
 
