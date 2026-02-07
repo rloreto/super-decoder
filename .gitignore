@@ -1,0 +1,59 @@
+# Archivos compilados
+*.o
+*.a
+*.so
+*.dylib
+
+# Archivos generados
+build/
+dist/
+*.nes
+*.rom
+*.bin
+
+# VS Code local settings
+.vscode/launch.json
+.vscode/tasks.json
+.vscode/.SRCINFO
+
+# macOS
+.DS_Store
+.AppleDouble
+.LSOverride
+*.swp
+*.swo
+*~
+
+# Editores
+.vim/
+.idea/
+*.swp
+*.swo
+
+# Node (si lo usas)
+node_modules/
+npm-debug.log
+yarn-error.log
+
+# Temporales
+*.tmp
+*.temp
+*.bak
+
+# Dependencias
+dependencies/
+libs/
+vendor/
+
+# Sistema de archivos
+Thumbs.db
+.directory
+
+# Archivos de depuración
+*.dSYM/
+*.su
+*.gch
+
+# Configuración local del usuario
+.vscode/settings.json.local
+local.env
