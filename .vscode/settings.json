@@ -1,0 +1,8 @@
+{
+  "[c]": {
+    "editor.defaultFormatter": "xaver.clang-format",
+    "editor.formatOnSave": true
+  },
+  "clang-format.executable": "/Library/Developer/CommandLineTools/usr/bin/clang-format",
+  "clang-format.style": "file"
+}
