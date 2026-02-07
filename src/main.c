@@ -82,7 +82,7 @@ void main(void) {
       for (x = 0; x < 4; x++) {
         if (grid[x][y] > 0) {
           unsigned char px = 64 + x * 40;
-          unsigned char py = 48 + y * 40; // -1 para alinear correctamente
+          unsigned char py = 47 + y * 40;
           unsigned char color_pal = grid[x][y];
 
           // Llenar la celda con sprites (4x4 = 16 sprites)
@@ -98,7 +98,7 @@ void main(void) {
     // Indicador de color seleccionado (esquina superior izquierda, 2x2 sprites)
     for (i = 0; i < 2; i++) {
       for (j = 0; j < 2; j++) {
-        oam_off = oam_spr(16 + j * 8, 15 + i * 8, 1, selected_color, oam_off);
+        oam_off = oam_spr(16 + j * 8, 14 + i * 8, 1, selected_color, oam_off);
       }
     }
 
